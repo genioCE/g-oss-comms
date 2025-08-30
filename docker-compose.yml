@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  mattermost:
+    image: mattermost/mattermost-team-edition:latest
+    ports: ["8065:8065"]
+  synapse:
+    image: matrixdotorg/synapse:latest
+    ports: ["8008:8008"]
+    environment:
+      - SYNAPSE_SERVER_NAME=localhost
+      - SYNAPSE_REPORT_STATS=no
+  element:
+    image: vectorim/element-web:latest
+    ports: ["8084:80"]
